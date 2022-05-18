@@ -1,0 +1,16 @@
+<h2>ComboBox Blog</h2>
+<wj-combo-box [itemsSource]="dataSet" [displayMemberPath]="'country'" [headerPath]="'country'" [dropDownCssClass]="'combo-dropdown'">
+  <ng-template wjItemTemplate let-item="item" let-itemIndex="itemIndex">
+    <div class="item">
+        <div class="itemHeader"><img src="{{item.flag}}" alt=""> <b>{{item.country}}</b></div>
+        Sales: <b>${{item.sales}}</b><br>
+        Expenses: <b>${{item.expenses}}</b>
+    </div>
+  </ng-template>
+</wj-combo-box>
+<br><br>
+<wj-flex-grid [itemsSource]="dataSet" [selectionMode]="'Row'">
+  <wj-flex-grid-column header="Country" binding="country" [width]="'*'"></wj-flex-grid-column>
+  <wj-flex-grid-column header="Sales" binding="sales" [format]="'c2'"></wj-flex-grid-column>
+  <wj-flex-grid-column header="Expenses" binding="expenses" [format]="'c2'"></wj-flex-grid-column>
+</wj-flex-grid>
